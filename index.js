@@ -2,6 +2,9 @@ const http=require("http");
 const express =require("express");
 const cors = require("cors");
 const socketIO = require("socket.io");
+const { hostname } = require("os");
+
+const hostname='0.0.0.0';
 
 const app=express();
 const port=process.env.PORT ;
@@ -42,6 +45,6 @@ io.on("connection",(socket)=>{
 });
 
 
-server.listen(port,()=>{
+app.listen(port,()=>{
     console.log(`Surver is running on port ${port}`);
 })
